@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Plotting in Workbench &#8212; Mantid Documentation 4.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Working with Python in Workbench" href="03_Working_with_Python_in_Workbench.html" />
+    <link rel="prev" title="Opening Mantid Workbench" href="01_opening_mantid_workbench.html" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="plotting-in-workbench">
+<span id="id1"></span><h1>Plotting in Workbench<a class="headerlink" href="#plotting-in-workbench" title="Permalink to this headline">¶</a></h1>
+<p>A new feature of Workbench is the Plots Toolbox, with this you can manage several plots at once from one window. to switch
+to the Plots Toolbox click on the Plots tab in the bottom left had corner, this will switch out the Algorithms Toolbox.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/Workbench_algorithms_plots_tab.png"><img alt="click the plots tab to switch to the plots toolbox" src="../../_images/Workbench_algorithms_plots_tab.png" style="width: 250px;" /></a>
+</div>
+<p>The Plots Toolbox has a number of functions to help manage your plots:</p>
+<ul class="simple">
+<li><p>Show/Hide: Toggles the visibility of the selected plot, the same function can accessed by clicking the eye button next to the plot name.</p></li>
+<li><p>Delete: Closes the selected plot from the Toolbox, this is the same as closing the plot window or clicking the X on a plot in the Toolbox list.</p></li>
+<li><p>Select All: Selects all plots currently in the Toolbox</p></li>
+<li><p>Sort: Allows for plots in the Toolbox to be sorted in order of name, number or last opened.</p></li>
+<li><p>Export: Exports the selected plot as an .EPS, .PDF, .PNG or .SVG fromat.</p></li>
+<li><p>Rename: By clicking on the symbol of a square and a pencil (between the eye and the X) you can rename the selected plot, names default to “workspace”-“number”</p></li>
+</ul>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/Workbench_Plots_Toolbox.png"><img alt="click the plots tab to switch to the plots toolbox" src="../../_images/Workbench_Plots_Toolbox.png" style="width: 500px;" /></a>
+</div>
+<div class="section" id="matplotlib">
+<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
+<p>Workbench uses the Python Package <cite>Matplotlib</cite> to build it’s graphs instad of <cite>Qt4</cite> which was used in MantidPlot. As such the plot window itself looks somewhat different.
+Along with your plot you now have a taskbar with a number of options:</p>
+<ol class="arabic simple">
+<li><p>Reset view/Pan and zoom with mouse/Zoom to rectangle.</p></li>
+<li><p>Toggle grid lines on and off.</p></li>
+<li><p>Export to file or Print figure. (Print not yet implemented)</p></li>
+<li><p>Configure plot options.</p></li>
+<li><p>Open fit browser tool</p></li>
+</ol>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/workbench_plot_window.png"><img alt="The Workbench plot window" src="../../_images/workbench_plot_window.png" style="width: 300px;" /></a>
+</div>
+<p>The plot can be modified from the plot options menu, from here the axis labels and titles can be changed along with the scale and range of the plot axes.
+You can also change the line specs and labels of indevidual curves including the colour by giving an 8 digit RGBA hex code (red, green, blue, alpha) or use the built in
+widget by clicking on the square button next to the text box.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/workbench_plot_options.png"><img alt="The Workbench plot options window" src="../../_images/workbench_plot_options.png" style="width: 400px;" /></a>
+</div>
+<p>Currently the Workbench user interface is unable to do everything MantidPlot was able to, as it does not support 2D or 3D plots and slacks the spectrum viewer among others.
+To get the full use out of Matplotlib you can work from the IPython prompt or by writing script in the Workbench main window. If you have not used Matplotlib before it might
+help to consult the online <a class="reference external" href="https://matplotlib.org/tutorials/introductory/pyplot.html">Matplotlib tutorial</a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Mantid Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Mantid Basic Course</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/getting_started.html">Setting Up and Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms_workspaces_and_histories/index.html">Algorithms, Workspaces and Histories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loading_and_displaying_data/index.html">Loading and Displaying Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connecting_data_to_instruments/index.html">Connecting Data To Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fitting_data/index.html">Fitting Data</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Mantid Workbench</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_opening_mantid_workbench.html">Opening Mantid Workbench</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Plotting in Workbench</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_Working_with_Python_in_Workbench.html">Working with Python in Workbench</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_What_is_missing.html">What is missing from Workbench</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_Exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction_to_python/index.html">Introduction to Python</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Mantid Basic Course</a><ul>
+  <li><a href="index.html">Mantid Workbench</a><ul>
+      <li>Previous: <a href="01_opening_mantid_workbench.html" title="previous chapter">Opening Mantid Workbench</a></li>
+      <li>Next: <a href="03_Working_with_Python_in_Workbench.html" title="next chapter">Working with Python in Workbench</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+        &copy; Copyright 2019, Mantid.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

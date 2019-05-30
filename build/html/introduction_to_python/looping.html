@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Looping &#8212; Mantid Documentation 4.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Basic Python Exercises" href="basic_python_exercises_1-2.html" />
+    <link rel="prev" title="Control Structures" href="control_structures.html" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="looping">
+<span id="id1"></span><h1>Looping<a class="headerlink" href="#looping" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Executing a given block of code a number of times is achieved using
+either the <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">while</span></code> statements</p></li>
+</ul>
+<div class="section" id="for-else">
+<h2>For … else<a class="headerlink" href="#for-else" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The syntax to loop with a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement is</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="s1">&#39;&#39;</span><span class="n">target</span><span class="s1">&#39;&#39;</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+    <span class="s1">&#39;&#39;</span><span class="n">block</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">code</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">execute</span><span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+<p>where <em>target</em> gets the value of the current number in <em>sequence</em>.</p>
+<ul class="simple">
+<li><p>A sequence from the loop can be a predefined sequence that has been
+constructed previously within the code or the
+<code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">end,</span> <span class="pre">step)</span></code> function can be used to generate a
+sequence of numbers from <em>start</em> to <em>end-1</em> in steps of <em>step</em>. The
+default step value is <em>1</em>. E.g.</p></li>
+</ul>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>gives the output</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></div>
+</div>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>gives the output</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0
+2
+4
+6
+8
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Extra loop control is provided by the <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code>
+statements. <code class="docutils literal notranslate"><span class="pre">break</span></code> causes the loop to terminate at that point
+without executing any other code in the block,</p></li>
+</ul>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">list_ok</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">list_ok</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">break</span>
+
+<span class="k">if</span> <span class="n">list_ok</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The list contains a negative number&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>gives the output</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The list contains a negative number
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">continue</span></code> causes execution to immediately jump to the next
+iteration of the loop,</p></li>
+</ul>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span>  <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">pos_sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">pos_sum</span> <span class="o">+=</span> <span class="n">i</span>     <span class="c1"># compound assignment means pos_sum = pos_sum + i</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sum of positive numbers is &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">pos_sum</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>gives the output</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Sum of positive numbers is 17
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>An optional <code class="docutils literal notranslate"><span class="pre">else</span></code> clause can be added after the loop that will
+only get executed if the whole loop executes successfully,</p></li>
+</ul>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>     <span class="c1"># Prints numbers 0-9 and the &#39;done&#39;</span>
+</pre></div>
+</div>
+<p>gives the output</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+done
+</pre></div>
+</div>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done&#39;</span><span class="p">)</span>     <span class="c1"># Prints numbers 0-4</span>
+</pre></div>
+</div>
+<p>gives the output</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+</pre></div>
+</div>
+</div>
+<div class="section" id="while">
+<h2>While<a class="headerlink" href="#while" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>While is another looping statement that simple executes until a given
+statement is False,</p></li>
+</ul>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="nb">sum</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">sum</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c1"># ALWAYS remember to update the loop test or it will</span>
+                       <span class="c1"># run forever!!</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>      <span class="c1"># Gives value 10</span>
+</pre></div>
+</div>
+<p>gives the output</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop also supports the else syntax in the same manner
+as the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</p></li>
+</ul>
+<p><a class="reference external" href="Category:Tested_Examples">Category:Tested Examples</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Mantid Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../mantid_basic_course/index.html">Mantid Basic Course</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Introduction to Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basic_language_principles.html">Basic Language Principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_conversions.html">Type Conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sequence_data_types.html">Sequence Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_structures.html">Control Structures</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Looping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-else">For … else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#while">While</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="basic_python_exercises_1-2.html">Basic Python Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="more_sequence_types.html">More Sequence Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="error_handling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_functions.html">Working With Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_python_exercises_3-4.html">Basic Python Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_files.html">Working With Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_modules.html">Using Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pattern_matching_with_regular_expressions.html">Pattern Matching With Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_python_exercises_5.html">Basic Python Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solutions_to_exercises.html">Solutions To Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Introduction to Python</a><ul>
+      <li>Previous: <a href="control_structures.html" title="previous chapter">Control Structures</a></li>
+      <li>Next: <a href="basic_python_exercises_1-2.html" title="next chapter">Basic Python Exercises</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+        &copy; Copyright 2019, Mantid.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

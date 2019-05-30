@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Masking And Grouping &#8212; Mantid Documentation 4.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Instrument Tree" href="05_instrument_tree.html" />
+    <link rel="prev" title="Investigating Data" href="03_investigating_data.html" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="masking-and-grouping">
+<span id="id1"></span><h1>Masking And Grouping<a class="headerlink" href="#masking-and-grouping" title="Permalink to this headline">¶</a></h1>
+<p>The Draw tab is for grouping or masking detectors.</p>
+<p>The toolbar on this tab consists of the same tools as the top row of
+tools in the Pick tab. Their functions and behaviours are also the same
+but the shapes are used for masking and grouping instead of displaying
+the data.</p>
+<div class="figure align-center">
+<img alt="MaskTabToolButtons.png" src="../../_images/MaskTabToolButtons.png" />
+</div>
+<p>Use these radio-buttons to switch between masking and grouping
+functions.</p>
+<div class="figure align-center">
+<img alt="MaskOrGroup.png" src="../../_images/MaskOrGroup.png" />
+</div>
+<p>The shapes ready for masking have red border</p>
+<p><img alt="MaskRedRing.png" src="../../_images/MaskRedRing.png" /></p>
+<p>The shapes ready for grouping have blue border</p>
+<p><img alt="GroupBlueRing.png" src="../../_images/GroupBlueRing.png" /></p>
+<div class="section" id="grouping">
+<h2>Grouping<a class="headerlink" href="#grouping" title="Permalink to this headline">¶</a></h2>
+<p>In the grouping mode you can extract the data or save grouping to a
+file:</p>
+<div class="figure align-center">
+<img alt="GroupingOperations.png" src="../../_images/GroupingOperations.png" />
+</div>
+</div>
+<div class="section" id="masking">
+<h2>Masking<a class="headerlink" href="#masking" title="Permalink to this headline">¶</a></h2>
+<p>In the masking mode operations can either be applied to the view only or
+to the underlying workspace.</p>
+<div class="figure align-center">
+<img alt="MaskingViewAndWorkspace.png" src="../../_images/MaskingViewAndWorkspace.png" />
+</div>
+<p>When the “Apply to View” button is clicked the detectors covered by the
+shapes are greyed out indicating that they are masked.</p>
+<div class="figure align-center">
+<img alt="MaskedViewPixels.png" src="../../_images/MaskedViewPixels.png" />
+</div>
+<p>The purpose of applying to view only is to make creation of masking
+workspaces/files easier. You can create a mask, apply it to view, save
+it in a workspace or a file but then clear the view
+(<img alt="ClearAllButton.png" src="../../_images/ClearAllButton.png" /> button) and create another mask without closing
+the Instrument View or need to reload the data. The masking operations
+are available from the “Apply and Save” menu.</p>
+<div class="figure align-center">
+<img alt="ApplyAndSaveMenu.png" src="../../_images/ApplyAndSaveMenu.png" />
+</div>
+<p>If masking is applied to the data (by clicking <img alt="ApplyToDataButton.png" src="../../_images/ApplyToDataButton.png" />)
+it cannot be undone.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Mantid Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Mantid Basic Course</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/getting_started.html">Setting Up and Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms_workspaces_and_histories/index.html">Algorithms, Workspaces and Histories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loading_and_displaying_data/index.html">Loading and Displaying Data</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Connecting Data To Instruments</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_displaying_and_navigating.html">Displaying And Navigating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_investigating_data.html">Investigating Data</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Masking And Grouping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_instrument_tree.html">Instrument Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_exercises_c.html">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../fitting_data/index.html">Fitting Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_workbench/index.html">Mantid Workbench</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction_to_python/index.html">Introduction to Python</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Mantid Basic Course</a><ul>
+  <li><a href="index.html">Connecting Data To Instruments</a><ul>
+      <li>Previous: <a href="03_investigating_data.html" title="previous chapter">Investigating Data</a></li>
+      <li>Next: <a href="05_instrument_tree.html" title="next chapter">Instrument Tree</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+        &copy; Copyright 2019, Mantid.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

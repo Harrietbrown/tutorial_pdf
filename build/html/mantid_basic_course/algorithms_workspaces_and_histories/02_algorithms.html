@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Algorithms &#8212; Mantid Documentation 4.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Workspaces" href="03_workspaces.html" />
+    <link rel="prev" title="Introduction" href="01_introduction.html" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="algorithms">
+<span id="id1"></span><h1>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>Algorithms<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<img alt="DemoLocationAlgorithmsPanel_MBC.png" src="../../_images/DemoLocationAlgorithmsPanel_MBC.png" />
+</div>
+<p>Algorithms are the verbs of Mantid - they are the “doing” objects. If
+you want to manipulate your data in any way it will be done through an
+algorithm. Algorithms operate primarily on data in workspaces. They will
+normally take one or more workspaces as an input, perform some
+processing on them and provide an output as another workspace (although
+it is possible to have multiple outputs).</p>
+<p>In MantidPlot, your primary source for Algorithms is the Algorithm panel
+shown on the right: The panel should be visible by default on the bottom
+right of the MantidPlot window. It can be shown/hidden by choosing
+<strong>View -&gt; Algorithms</strong> option from the MantidPlot top menu. The panel
+may also be re-located and re-docked by dragging the top bar with the
+left mouse button held down.</p>
+<div class="line-block">
+<div class="line">The algorithms can either be navigated by category (see green
+highlighted section), or searched by name (red highlighted section).
+In the search box, start writing the algorithm name, and it will
+predict the name of the algorithm as you continue typing.</div>
+<div class="line"><a class="reference internal" href="../../_images/MBC_AlgorithmDialog.png"><img alt="MBC_AlgorithmDialog.png" src="../../_images/MBC_AlgorithmDialog.png" style="width: 300px;" /></a></div>
+</div>
+<div class="section" id="algorithm-help">
+<h3>Algorithm Help<a class="headerlink" href="#algorithm-help" title="Permalink to this headline">¶</a></h3>
+<p>Once you have an algorithm selected, you can get additional information
+about what it does, what it takes as inputs, what it provides as
+outputs, and how to use it. This is achieved via the help button on the
+algorithm dialog box that appears once the algorithm is selected. The
+help button shows up as a <strong>?</strong> and will take you to the documentation
+page specific to that algorithm.</p>
+</div>
+<div class="section" id="validation-of-inputs">
+<h3>Validation of Inputs<a class="headerlink" href="#validation-of-inputs" title="Permalink to this headline">¶</a></h3>
+<p>Many algorithms have mandatory input properties. Others have constraints
+on the inputs, such as numbers that are bounded. The red asterisk next
+to some of the input properties indicate that they must be provided
+before the algorithm can run. Hovering over the asterisk will tell you
+what is wrong with the input.</p>
+<p>Input workspaces are also validated against. If the workspace type does
+not match the validator of the input workspace for the algorithm it will
+not appear as a possible workspace to use as an input.</p>
+</div>
+<div class="section" id="overwriting-inputworkspace">
+<h3>Overwriting InputWorkspace<a class="headerlink" href="#overwriting-inputworkspace" title="Permalink to this headline">¶</a></h3>
+<p>The button next to the OutputWorkspace will populate the OutputWorkspace
+property with the same name as that of the InputWorkspace. This will
+mean that the new OutputWorkspace will overwrite the original input
+workspace.</p>
+</div>
+<div class="section" id="running-algorithms">
+<h3>Running Algorithms<a class="headerlink" href="#running-algorithms" title="Permalink to this headline">¶</a></h3>
+<p>On the Algorithm dialog, the run button will execute the algorithm. If
+successful, new output workspaces will appear in the Workspace list
+panel. Algorithm outputs are sent to the Results Log panel. If the
+algorithm fails to complete, the reason should also appear in the same
+Results Log panel.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Mantid Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Mantid Basic Course</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/getting_started.html">Setting Up and Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Algorithms, Workspaces and Histories</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_workspaces.html">Workspaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_algorith_histories.html">Algorithim Histories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_interfaces.html">Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_exercises_a.html">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../loading_and_displaying_data/index.html">Loading and Displaying Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connecting_data_to_instruments/index.html">Connecting Data To Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fitting_data/index.html">Fitting Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_workbench/index.html">Mantid Workbench</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction_to_python/index.html">Introduction to Python</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Mantid Basic Course</a><ul>
+  <li><a href="index.html">Algorithms, Workspaces and Histories</a><ul>
+      <li>Previous: <a href="01_introduction.html" title="previous chapter">Introduction</a></li>
+      <li>Next: <a href="03_workspaces.html" title="next chapter">Workspaces</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+        &copy; Copyright 2019, Mantid.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

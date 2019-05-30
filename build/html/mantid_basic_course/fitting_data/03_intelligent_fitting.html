@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Intelligent Fitting &#8212; Mantid Documentation 4.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercises" href="04_exercises.html" />
+    <link rel="prev" title="Fit Model Choices" href="02_fit_model_choices.html" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="intelligent-fitting">
+<span id="id1"></span><h1>Intelligent Fitting<a class="headerlink" href="#intelligent-fitting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>Intelligent Fitting<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Fitting is the modelling of data where parameters of the model are
+allowed to vary during a fitting process until the model and data agree
+better according to some cost function.</p>
+<p>In summary the Mantid fitting provides</p>
+<ul class="simple">
+<li><p>General fitting capabilities</p></li>
+<li><p>Neutron and Muon intelligent fitting tools, which makes use of
+additional information about the data, such as instrument geometry
+and log value information</p></li>
+<li><p>Easy expandability</p></li>
+</ul>
+<p>Here a more advanced aspect of Mantid fitting is presented. We will fit
+an asymmetric peak from a GEM data set with the Ikeda-Carpenter function
+on a LinearBackground.</p>
+<div class="line-block">
+<div class="line">Let’s load GEM63437_focussed.nxs file and plot GEM63437_focussed_3
+workspace. Zoom into the region 4300 - 4900 microseconds.</div>
+<div class="line"><a class="reference internal" href="../../_images/GEMAsymmetricPeak.png"><img alt="GEMAsymmetricPeak.png" src="../../_images/GEMAsymmetricPeak.png" style="width: 400px;" /></a></div>
+</div>
+<div class="line-block">
+<div class="line">Try to fit it with a Gaussian (plus LinearBackground):</div>
+<div class="line"><a class="reference internal" href="../../_images/GEMGaussianFit.png"><img alt="GEMGaussianFit.png" src="../../_images/GEMGaussianFit.png" style="width: 400px;" /></a></div>
+</div>
+<p>Not a very good job. The Ikeda-Carpenter function is a better choice
+here. But this is a very difficult function to work with. It requires
+very good initial parameter values for the fit to converge. The Mantid
+approach is to use the pre-set values which are defined on a
+per-instrument basis. For example, when the Ikeda-Carpenter is used with
+GEM data the fitting tools automatically find and set the appropriate
+initial values. This results in a good fit.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/GEMIkedaCarpenterFit.png"><img alt="GEMIkedaCarpenterFit.png" src="../../_images/GEMIkedaCarpenterFit.png" style="width: 400px;" /></a>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Mantid Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Mantid Basic Course</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/getting_started.html">Setting Up and Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms_workspaces_and_histories/index.html">Algorithms, Workspaces and Histories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loading_and_displaying_data/index.html">Loading and Displaying Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connecting_data_to_instruments/index.html">Connecting Data To Instruments</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Fitting Data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_fitting_models_to_data.html">Fitting Models To Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_fit_model_choices.html">Fit Model Choices</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Intelligent Fitting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_exercises.html">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../using_workbench/index.html">Mantid Workbench</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction_to_python/index.html">Introduction to Python</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Mantid Basic Course</a><ul>
+  <li><a href="index.html">Fitting Data</a><ul>
+      <li>Previous: <a href="02_fit_model_choices.html" title="previous chapter">Fit Model Choices</a></li>
+      <li>Next: <a href="04_exercises.html" title="next chapter">Exercises</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+        &copy; Copyright 2019, Mantid.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

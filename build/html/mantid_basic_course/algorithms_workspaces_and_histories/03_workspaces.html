@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Workspaces &#8212; Mantid Documentation 4.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Algorithim Histories" href="04_algorith_histories.html" />
+    <link rel="prev" title="Algorithms" href="02_algorithms.html" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="workspaces">
+<span id="id1"></span><h1>Workspaces<a class="headerlink" href="#workspaces" title="Permalink to this headline">¶</a></h1>
+<p>Workspaces come in several forms, but the most common by far is the
+<span class="xref std std-ref">MatrixWorkspace</span> which represents XYE data for one
+or more spectra. The MatrixWorkspace itself can be sub-grouped into
+<span class="xref std std-ref">EventWorkspace</span> and <span class="xref std std-ref">Workspace2D</span>.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/MatrixWorkspaceHierachy.png"><img alt="MatrixWorkspaceHierachy.png" src="../../_images/MatrixWorkspaceHierachy.png" style="width: 300px;" /></a>
+</div>
+<div class="section" id="workspace2d">
+<h2>Workspace2D<a class="headerlink" href="#workspace2d" title="Permalink to this headline">¶</a></h2>
+<p>A Workspace2D consists of a workspace with 1 or more spectra. Typically,
+each spectrum will be a histogram. For each spectrum X, Y (counts) and E
+(error) data is stored as a separate array.</p>
+<p><a class="reference internal" href="../../_images/MBC_Workspace2D.png"><img alt="MBC_Workspace2D.png" src="../../_images/MBC_Workspace2D.png" style="width: 400px;" /></a></p>
+<p>Each workspace has two axes, the Spectrum axis and the X-axis. Where
+an axis holds a known unit type, it may be converted to another set of
+units.</p>
+<p><a class="reference internal" href="../../_images/MBC_axes_annotated.png"><img alt="MBC_axes_annotated.png" src="../../_images/MBC_axes_annotated.png" style="width: 400px;" /></a></p>
+<p>Rebinning a Workspace2D is a one-way process when the rebinning leads to
+a coarser structure.</p>
+<div class="section" id="ragged-workspaces">
+<h3>Ragged Workspaces<a class="headerlink" href="#ragged-workspaces" title="Permalink to this headline">¶</a></h3>
+<p>Converting x-axis units can lead to a ragged workspace, in which bin
+boundaries are not consistent across the spectra. Some algorithms will
+not accept input workspaces that are ragged. The fix to this is to apply
+Rebin to the Ragged workspace structure, as the example below shows.</p>
+<ol class="arabic">
+<li><p>run <strong>Load</strong> on <em>GEM38370_Focussed.nxs</em> setting the
+<strong>OutputWorkspace</strong> to be <em>ws</em></p></li>
+<li><p>run <strong>ConvertUnits</strong> on <em>ws</em> setting <strong>OutputWorkspace</strong> to <em>lambda</em>,
+<strong>Target</strong>=<em>Wavelength</em>, <strong>EMode</strong>=<em>Elastic</em>. Plotting this
+in the <em>Color Fill Plot</em> demonstrates the ragged X-bins.</p>
+<p><a class="reference internal" href="../../_images/MBC_Ragged.png"><img alt="MBC_Ragged.png" src="../../_images/MBC_Ragged.png" style="width: 300px;" /></a></p>
+</li>
+<li><p>run <strong>Rebin</strong> on <em>lambda</em> setting <strong>Params</strong> to <em>0.5</em> and
+<strong>OutputWorkspace</strong> to <em>Rebinned</em>. Plotting this in the <em>Color Fill
+Plot</em> demonstrates that uniform binning across all spectra has been
+achieved.</p>
+<p><a class="reference internal" href="../../_images/MBC_Rebinned.png"><img alt="MBC_Rebinned.png" src="../../_images/MBC_Rebinned.png" style="width: 300px;" /></a></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="event-workspaces">
+<h2>Event Workspaces<a class="headerlink" href="#event-workspaces" title="Permalink to this headline">¶</a></h2>
+<p>An <span class="xref std std-ref">EventWorkspace</span> stores information about each
+individual event observation in detectors. More specifically, at a
+neutron spallation source, this means that the time of arrival and
+detector ID of each individual neutron is recorded. Only fairly recent
+advances in computer and acquisition hardware have made storing this
+detailed knowledge a practical solution. For example at the SNS facility
+all data, except for data collected in monitors, are stored in this way.</p>
+<p>Event specifies “when” and “where”</p>
+<p><strong>Pulse time</strong> – when the proton pulse happened in absolute time</p>
+<p><strong>Time-of-flight</strong> – time for the neutron to travel from moderator to
+the detector</p>
+<div class="section" id="basic-example">
+<h3>Basic Example<a class="headerlink" href="#basic-example" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/Binning_example.png"><img alt="Binning_example.png" src="../../_images/Binning_example.png" style="width: 500px;" /></a>
+</div>
+</div>
+<div class="section" id="rebinning">
+<h3>Rebinning<a class="headerlink" href="#rebinning" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Rebinning is essentially free and can be conducted in-place. This is
+because the data does not need to change, only the overlaying
+histogramming.</p></li>
+</ul>
+</div>
+<div class="section" id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Each event list is separate</p></li>
+<li><p>Sorting events is O(n) = n log(n)</p></li>
+<li><p>Histogramming is O(n) = n</p></li>
+<li><p>Only histogram as needed</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="example-of-workspace-usage">
+<h2>Example of Workspace usage<a class="headerlink" href="#example-of-workspace-usage" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Load the event data HYS_11388_event.nxs</p></li>
+<li><p>Execute the ‘SumSpectra’ algorithm</p></li>
+<li><p>Rebin with Params=300 and plot, ensure PreserveEvents=True</p>
+<p><a class="reference internal" href="../../_images/MBC_Rebin_Coarse.png"><img alt="MBC_Rebin_Coarse.png" src="../../_images/MBC_Rebin_Coarse.png" style="width: 400px;" /></a></p>
+</li>
+<li><p>Rebin with Params=100, the plot will automatically update, ensure
+PreserveEvents=True</p>
+<p><a class="reference internal" href="../../_images/MBC_Rebin_MED.png"><img alt="MBC_Rebin_MED.png" src="../../_images/MBC_Rebin_MED.png" style="width: 400px;" /></a></p>
+</li>
+<li><p>Rebin with Params=10 the plot will automatically update, ensure
+PreserveEvents=True</p>
+<p><a class="reference internal" href="../../_images/MBC_Rebin_Fine.png"><img alt="MBC_Rebin_Fine.png" src="../../_images/MBC_Rebin_Fine.png" style="width: 400px;" /></a></p>
+</li>
+</ol>
+<p>Keep the workspace open for the next section.</p>
+</div>
+<div class="section" id="other-workspace-types">
+<h2>Other Workspace Types<a class="headerlink" href="#other-workspace-types" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>GroupWorkspaces store a collection of other workspaces in a group,
+this can be created manually and is often used in multi-period data.
+Either the whole group or individual members can be processed using
+algorithms.</p></li>
+<li><p>TableWorkspaces stores data as cells. Columns determine the type of
+the data, for example double precision float, while each entry
+appears as a new row. This is analogous to a Microsoft Excel
+Spreadsheet.</p></li>
+<li><p>PeaksWorkspace is a special type of TableWorkspace with additional
+support for Single Crystal peaks.</p></li>
+<li><p><span class="xref std std-ref">MDWorkspace</span> will be covered later in this course</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Mantid Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Mantid Basic Course</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/getting_started.html">Setting Up and Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Algorithms, Workspaces and Histories</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_algorithms.html">Algorithms</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Workspaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_algorith_histories.html">Algorithim Histories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_interfaces.html">Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_exercises_a.html">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../loading_and_displaying_data/index.html">Loading and Displaying Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connecting_data_to_instruments/index.html">Connecting Data To Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fitting_data/index.html">Fitting Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_workbench/index.html">Mantid Workbench</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction_to_python/index.html">Introduction to Python</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Mantid Basic Course</a><ul>
+  <li><a href="index.html">Algorithms, Workspaces and Histories</a><ul>
+      <li>Previous: <a href="02_algorithms.html" title="previous chapter">Algorithms</a></li>
+      <li>Next: <a href="04_algorith_histories.html" title="next chapter">Algorithim Histories</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+        &copy; Copyright 2019, Mantid.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

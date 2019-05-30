@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Displaying 2D Data &#8212; Mantid Documentation 4.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Plotting Multiple Workspaces" href="05_plotting_multiple_workspaces.html" />
+    <link rel="prev" title="Displaying 1D Data" href="03_displaying_1D_data.html" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="displaying-2d-data">
+<span id="id1"></span><h1>Displaying 2D Data<a class="headerlink" href="#displaying-2d-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="plotting-all-spectra">
+<h2>Plotting All Spectra<a class="headerlink" href="#plotting-all-spectra" title="Permalink to this headline">¶</a></h2>
+<p>We have previously seen how to plot one or more rows from a dataset.
+Here we will show how to visually inspect entire datasets.</p>
+<ol class="arabic simple">
+<li><p>Load the MAR11060 dataset.</p></li>
+<li><p>Right click the workspace in the workspace list and select “Colour
+Fill Plot”. This will create a fairly boring blue display of the
+data, because one spectrum contains much higher counts than any of
+the other spectra, and the color scale has adjusted accordingly.</p></li>
+<li><p>To make the colour fill plot more sensitive to its smaller features,
+right-click on the plot and select “Colour Bar-&gt;Log Scale”.</p></li>
+<li><p>Finally, right-clicking on the colour bar and selecting ‘Rescale to
+show all’ will give a more meaningful result:</p></li>
+</ol>
+<div class="figure align-center">
+<img alt="ColourFillPlotMar11060.png" src="../../_images/ColourFillPlotMar11060.png" />
+</div>
+</div>
+<div class="section" id="plotting-from-the-matrix-view">
+<h2>Plotting from the Matrix View<a class="headerlink" href="#plotting-from-the-matrix-view" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<img alt="Plot3DMenu.png" src="../../_images/Plot3DMenu.png" />
+</div>
+<p>As long as this matrix is in focus, the MantidPlot menubar will contain
+a menu called “3D Plot”. This contains many options for plotting full
+datasets. The “Color Fill” option is one of the most useful among them.</p>
+<div class="section" id="changing-the-colour-map">
+<h3>Changing the Colour Map<a class="headerlink" href="#changing-the-colour-map" title="Permalink to this headline">¶</a></h3>
+<p>There are several colour maps to choose from that are already installed
+with Mantid:</p>
+<ol class="arabic simple">
+<li><p>Double-click within the data of the plot (or right-click and select
+“Properties”).</p></li>
+<li><p>In the “Plot Details” dialog that appears select “Layer Details” in
+the left-hand pane.</p></li>
+<li><p>Select “Custom Color Map” in “Colors” tab, click the “Select
+ColourMap” button, and select any of the colour map files.</p></li>
+</ol>
+<div class="section" id="creating-your-own-colour-map">
+<h4>Creating Your Own Colour Map<a class="headerlink" href="#creating-your-own-colour-map" title="Permalink to this headline">¶</a></h4>
+<p>If you don’t like any of the colour maps you can create your own. The
+files are just 256 entries of Red, Green and Blue values (0-255 for
+each).</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">...</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">120</span><span class="pre">136</span><span class="pre">260</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">124</span><span class="pre">140</span><span class="pre">260</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">128</span><span class="pre">144</span><span class="pre">260</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">128</span><span class="pre">144</span><span class="pre">260</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">132</span><span class="pre">148</span><span class="pre">260</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">136</span><span class="pre">152</span><span class="pre">260</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">140</span><span class="pre">152</span><span class="pre">260</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">140</span><span class="pre">156</span><span class="pre">211</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">144</span><span class="pre">160</span><span class="pre">211</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">148</span><span class="pre">160</span><span class="pre">211</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">148</span><span class="pre">164</span><span class="pre">211</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">152</span><span class="pre">168</span><span class="pre">211</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">156</span><span class="pre">168</span><span class="pre">211</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">160</span><span class="pre">172</span><span class="pre">211</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">...</span></code></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="contour-lines">
+<h2>Contour Lines<a class="headerlink" href="#contour-lines" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/ContourLinesDialog.png"><img alt="ContourLinesDialog.png" src="../../_images/ContourLinesDialog.png" style="width: 300px;" /></a>
+</div>
+<p>You can plot contour lines onto your colour maps.</p>
+<ol class="arabic simple">
+<li><p>Double-click within the data of the plot (or right-click and select
+“Properties”).</p></li>
+<li><p>In the “Plot Details” dialog that appears select “Layer details” in
+the left hand pane.</p></li>
+<li><p>Select the “Contour Lines” tab.</p></li>
+<li><p>Here you can set the values for the contours; the pen contour, line
+thickness, etc. according to the “Plot Details” dialog example shown</p></li>
+<li><p>Click “OK” and the contour lines will appear on your plot:</p></li>
+</ol>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/400px-ContourPlot.png"><img alt="400px-ContourPlot.png" src="../../_images/400px-ContourPlot.png" style="width: 400px;" /></a>
+</div>
+</div>
+<div class="section" id="spectrum-viewer">
+<h2>Spectrum Viewer<a class="headerlink" href="#spectrum-viewer" title="Permalink to this headline">¶</a></h2>
+<p>The Spectrum viewer is a useful way to investigate 2D image data. You
+can rapidly look through the spectrum and bin data for any point in the
+2D map. To launch the Spectrum Viewer just right-click on the MAR11060
+Workspace and select ‘Show Spectrum Viewer’:</p>
+<div class="figure align-center" id="id2">
+<img alt="centre | 600px" src="../../_images/600px-ImageViewer.png" />
+<p class="caption"><span class="caption-text">centre | 600px</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Mantid Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Mantid Basic Course</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/getting_started.html">Setting Up and Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms_workspaces_and_histories/index.html">Algorithms, Workspaces and Histories</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Loading and Displaying Data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_loading_data.html">Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_the_matrix_workspace.html">The Matrix Workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_displaying_1D_data.html">Displaying 1D Data</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Displaying 2D Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_plotting_multiple_workspaces.html">Plotting Multiple Workspaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_formatting_plots.html">Formatting Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="07_exercises.html">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../connecting_data_to_instruments/index.html">Connecting Data To Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fitting_data/index.html">Fitting Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_workbench/index.html">Mantid Workbench</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction_to_python/index.html">Introduction to Python</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Mantid Basic Course</a><ul>
+  <li><a href="index.html">Loading and Displaying Data</a><ul>
+      <li>Previous: <a href="03_displaying_1D_data.html" title="previous chapter">Displaying 1D Data</a></li>
+      <li>Next: <a href="05_plotting_multiple_workspaces.html" title="next chapter">Plotting Multiple Workspaces</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+        &copy; Copyright 2019, Mantid.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exercises &#8212; Mantid Documentation 4.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Mantid Workbench" href="../using_workbench/index.html" />
+    <link rel="prev" title="Intelligent Fitting" href="03_intelligent_fitting.html" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="exercises">
+<span id="id1"></span><h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="exercise-1">
+<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h2>
+<p>In this exercise we will fit a simple Gaussian on a linear background.</p>
+<ol class="arabic">
+<li><p>Start with loading the data set (GEM38370_Focussed).</p></li>
+<li><p>Plot spectrum 4.</p></li>
+<li><p>Zoom into the peak around 5 angstroms.</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/GemSinglePeak.png"><img alt="GemSinglePeak.png" src="../../_images/GemSinglePeak.png" style="width: 400px;" /></a></p>
+</div></blockquote>
+</li>
+<li><p>Start the fitting tool.</p></li>
+<li><p>Adjust the fitting range if needed.</p></li>
+<li><p>Make sure the fitting model is empty in the Fit Function browser. If
+necessary clear it.</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/ClearModel.png"><img alt="ClearModel.png" src="../../_images/ClearModel.png" style="width: 200px;" /></a></p>
+</div></blockquote>
+</li>
+<li><p>Add a background function. Select LinearBackground.</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/AddBackgroundOption.png"><img alt="AddBackgroundOption.png" src="../../_images/AddBackgroundOption.png" style="width: 400px;" /></a></p>
+</div></blockquote>
+</li>
+<li><p>Add a peak. Select Gaussian.</p></li>
+<li><p>Click at peak’s maximum point to set initial values for the centre
+and the height.</p></li>
+<li><p>Adjust the width.</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/PreparedToFitGaussian.png"><img alt="PreparedToFitGaussian.png" src="../../_images/PreparedToFitGaussian.png" style="width: 400px;" /></a></p>
+</div></blockquote>
+</li>
+<li><p>Run Fit.</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/FittedGaussian.png"><img alt="FittedGaussian.png" src="../../_images/FittedGaussian.png" style="width: 400px;" /></a></p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h2>
+<p>This exercise will mainly quiz about fitting.</p>
+<ol class="arabic">
+<li><p>Ensure that the Fit Function panel is clear using panel option
+Setup-&gt;’Clear model’</p></li>
+<li><p>Load the GEM63437_focussed.nxs data. Note the workspace created is a
+WorkspaceGroup. This is simply a containing workspace grouping one of
+more other workspaces. This dataset has been proceed already with
+Mantid. How many algorithms have been applied to this processed
+dataset?</p></li>
+<li><p>Plot the spectrum in GEM63437_focussed_2, and zoom in on the area of
+the three peaks</p></li>
+<li><p>Associate the plot with the Fit Function panel and set fitting range
+to be between approximately 2270 and 5000 microseconds</p></li>
+<li><p>Right click on plot and select Add background… then
+FlatBackground</p></li>
+<li><p>Right click on plot and add peak
+IkedaCarpenterPV. This is peak function where
+some parameters of the peak function may be related to instrument
+geometry. As of this writing scientist(s) of the GEM instrument
+modified the file MantidInstall/instrument/GEM_Parameters.xml such
+that when you added the IkedaCarpenterPV peak it automatically
+selected some sensible starting parameter values. This is evident
+from the starting guess of the peak width but also by inspecting this
+function in the Fit Function panel</p></li>
+<li><p>Hold down shift key and click on top of the two other peaks</p></li>
+<li><p>Plot (fitting) guess and what you should see is something similar to</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/ExerciseFittingMBCguess.png"><img alt="ExerciseFittingMBCguess.png" src="../../_images/ExerciseFittingMBCguess.png" style="width: 400px;" /></a>
+where the red line is the guess</p>
+</div></blockquote>
+</li>
+<li><p>Remove plot guess</p></li>
+<li><p>Fit the data with the model, where the output should be something
+similar to</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/ExerciseFittingMBCfit.png"><img alt="ExerciseFittingMBCfit.png" src="../../_images/ExerciseFittingMBCfit.png" style="width: 400px;" /></a>
+where the red line is here the fit</p>
+</div></blockquote>
+</li>
+<li><p>clear the model</p></li>
+<li><p>Plot the spectrum in GEM63437_focussed_3</p></li>
+<li><p>Using the same background and peak fitting function as above fit the
+region between about 2000 and 9400 microseconds, and obtain a result
+similar to</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/ExerciseFittingMBCfit_2.png"><img alt="ExerciseFittingMBCfit_2.png" src="../../_images/ExerciseFittingMBCfit_2.png" style="width: 400px;" /></a>
+<strong>Note</strong> this will take a while as it is a fit with almost 40
+independent parameters to optimise.</p>
+</div></blockquote>
+</li>
+<li><p>Optionally using a similar approach try to fit the spectrum in for
+example GEM63437_focussed_5</p></li>
+</ol>
+</div>
+<div class="section" id="exercise-3">
+<h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Load the MUSR00015189 data set.</p></li>
+<li><p>Plot a spectrum.</p></li>
+<li><p>Start the fitting interface.</p></li>
+<li><p>Follow the steps described earlier to add and set up a user defined
+function (UserFunction).</p></li>
+<li><p>Define a function with Formula = h*exp(-a*x)</p></li>
+<li><p>Fit the data.</p></li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Mantid Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Mantid Basic Course</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/getting_started.html">Setting Up and Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms_workspaces_and_histories/index.html">Algorithms, Workspaces and Histories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loading_and_displaying_data/index.html">Loading and Displaying Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connecting_data_to_instruments/index.html">Connecting Data To Instruments</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Fitting Data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_fitting_models_to_data.html">Fitting Models To Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_fit_model_choices.html">Fit Model Choices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_intelligent_fitting.html">Intelligent Fitting</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../using_workbench/index.html">Mantid Workbench</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction_to_python/index.html">Introduction to Python</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Mantid Basic Course</a><ul>
+  <li><a href="index.html">Fitting Data</a><ul>
+      <li>Previous: <a href="03_intelligent_fitting.html" title="previous chapter">Intelligent Fitting</a></li>
+      <li>Next: <a href="../using_workbench/index.html" title="next chapter">Mantid Workbench</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+        &copy; Copyright 2019, Mantid.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

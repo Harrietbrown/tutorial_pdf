@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exercises &#8212; Mantid Documentation 4.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Fitting Data" href="../fitting_data/index.html" />
+    <link rel="prev" title="Instrument Tree" href="05_instrument_tree.html" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="exercises">
+<span id="exercises-c"></span><h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="exercise-1">
+<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Load</strong> <em>SXD23767.raw</em> into MantidPlot</p></li>
+<li><p>Open the Instrument View</p></li>
+<li><p>Change colour map to IDL-rainbow</p></li>
+<li><p>Change the colour scale to <em>Log10</em> set the scale range to be between
+1 and 1e9</p></li>
+<li><p>Go to the <em>Pick</em> tab. choose <em>Add single crystal peak</em>
+<img alt="PickTabAddPeakButton.png" src="../../_images/PickTabAddPeakButton.png" /> go to a Bragg peak and left-click. The
+mini-plot should now be showing a plot of counts vs TOF for that
+detector.</p></li>
+<li><p>Move the mouse over the mini-plot, <strong>right-click</strong> the mouse and
+select <em>Save plot to workspace</em>, plot the workspace called <em>Curves</em>
+which should now be in the MantidPlot workspace panel.</p></li>
+<li><p>Go back to the Instrument View, and the same mini-plot. This time
+select a peak in the plot and <strong>left-click</strong> the mouse. A new peak
+should be shown in the instrument view. A workspace (PeaksWorkspace)
+called <em>SingleCrystalPeakTable</em> should also exist now in the
+MantidPlot workspace panel.
+<a class="reference internal" href="../../_images/MBC_PickDemo.png"><img alt="MBC_PickDemo.png" src="../../_images/MBC_PickDemo.png" style="width: 600px;" /></a></p></li>
+<li><p>Double click the new PeaksWorkspace to open it as a table and verify
+that the TOF value is the same as shown in the mini-plot and the
+detector ID is the same as shown in the text area above the mini plot</p></li>
+<li><p>Now in the Instrument View window use the <em>Erase single crystal
+peak(s)</em> <img alt="PickTabEraseButton.png" src="../../_images/PickTabEraseButton.png" /> tool to remove the Peak just added</p></li>
+</ul>
+</div>
+<div class="section" id="exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h2>
+<p>Here we are going to mask out the beam stop and the edge of the main
+detector for a small angle dataset.</p>
+<ol class="arabic">
+<li><p>Load LOQ48097 data set.</p></li>
+<li><p>Open the Instrument View by right-clicking on the workspace and
+selecting Show Instrument.</p></li>
+<li><p>If the Instrument View shows one of the “unwrapped” projections
+switch to Full 3D on Render tab.</p></li>
+<li><p>Select the Axis view to Z+ (to avoid having a view with the front LOQ
+detector in front of the main detector)</p></li>
+<li><p>Make sure that the colour map axis has the Log10 scaling. The
+instrument display should look like this:</p>
+<p><a class="reference internal" href="../../_images/LOQForMasking.png"><img alt="LOQForMasking.png" src="../../_images/LOQForMasking.png" style="width: 200px;" /></a></p>
+<ol class="arabic simple">
+<li><p>Switch to the Draw tab.</p></li>
+</ol>
+</li>
+<li><p>Select the ellipse drawing button <img alt="PickTabEllipseButton.png" src="../../_images/PickTabEllipseButton.png" />.</p></li>
+<li><p>Draw an ellipse in the middle of the panel to cover completely the
+red disk there.</p>
+<p><a class="reference internal" href="../../_images/LOQEllipseMasking.png"><img alt="LOQEllipseMasking.png" src="../../_images/LOQEllipseMasking.png" style="width: 200px;" /></a></p>
+</li>
+<li><p>Select the button for drawing a rectangular ring
+<img alt="PickTabRectRingButton.png" src="../../_images/PickTabRectRingButton.png" /></p></li>
+<li><p>Draw a ring masking the edge detectors of the panel. Use its control
+points to adjust it to the right sizes.</p>
+<p><a class="reference internal" href="../../_images/LOQRectRingMasking.png"><img alt="LOQRectRingMasking.png" src="../../_images/LOQRectRingMasking.png" style="width: 200px;" /></a></p>
+</li>
+<li><p>Click <img alt="ApplyToViewButton.png" src="../../_images/ApplyToViewButton.png" /> button.</p>
+<p><a class="reference internal" href="../../_images/LOQAppliedMask.png"><img alt="LOQAppliedMask.png" src="../../_images/LOQAppliedMask.png" style="width: 200px;" /></a></p>
+</li>
+<li><p>Click Apply and Save button and select As Mask to Workspace. A
+workspace named “MaskWorkspace” is created.</p></li>
+<li><p>Click <img alt="ClearAllButton.png" src="../../_images/ClearAllButton.png" /> button. The instrument image returns to
+the original, all masking is removed.</p></li>
+<li><p>Right-click on “MaskWorkspace” and select Show Instrument.</p></li>
+<li><p>Change to Full 3D. The image should look like this:</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/MaskWorkspaceView.png"><img alt="MaskWorkspaceView.png" src="../../_images/MaskWorkspaceView.png" style="width: 200px;" /></a></p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Mantid Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Mantid Basic Course</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/getting_started.html">Setting Up and Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms_workspaces_and_histories/index.html">Algorithms, Workspaces and Histories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loading_and_displaying_data/index.html">Loading and Displaying Data</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Connecting Data To Instruments</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_displaying_and_navigating.html">Displaying And Navigating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_investigating_data.html">Investigating Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_masking_and_grouping.html">Masking And Grouping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_instrument_tree.html">Instrument Tree</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../fitting_data/index.html">Fitting Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_workbench/index.html">Mantid Workbench</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction_to_python/index.html">Introduction to Python</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Mantid Basic Course</a><ul>
+  <li><a href="index.html">Connecting Data To Instruments</a><ul>
+      <li>Previous: <a href="05_instrument_tree.html" title="previous chapter">Instrument Tree</a></li>
+      <li>Next: <a href="../fitting_data/index.html" title="next chapter">Fitting Data</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+        &copy; Copyright 2019, Mantid.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

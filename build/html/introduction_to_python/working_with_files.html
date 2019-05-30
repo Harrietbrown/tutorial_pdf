@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Working With Files &#8212; Mantid Documentation 4.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using Modules" href="using_modules.html" />
+    <link rel="prev" title="Basic Python Exercises" href="basic_python_exercises_3-4.html" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="working-with-files">
+<span id="id1"></span><h1>Working With Files<a class="headerlink" href="#working-with-files" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Reading/writing files in Python is made quite simple and both are
+controlled through strings.</p></li>
+</ul>
+<div class="section" id="reading">
+<h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>To be able to read a file we must first open a “handle” to it through
+the open command,</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filename.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>where the first argument is the full path to the file and the second
+argument is one of mode flags:</p>
+<ul>
+<li><p>read - <code class="docutils literal notranslate"><span class="pre">'r'</span></code></p></li>
+<li><p>write - <code class="docutils literal notranslate"><span class="pre">'w'</span></code></p></li>
+<li><p>append - <code class="docutils literal notranslate"><span class="pre">'a'</span></code></p></li>
+<li><p>and binary - <code class="docutils literal notranslate"><span class="pre">'b'</span></code>.</p></li>
+</ul>
+</li>
+<li><p>In our example we have opened the file in read mode and so only
+reading can take place. We will not discuss the binary mode flag, for
+further information please see one of the external references.</p></li>
+<li><p>Once opened the file can be accessed in a variety of ways. Firstly,
+the entire file can be read at once into a string using the
+<code class="docutils literal notranslate"><span class="pre">read()</span></code> command,</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">contents</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>but this is only advised for very small files as it is an inefficient
+way of processing a file.</p>
+<ul class="simple">
+<li><p>Secondly, the <code class="docutils literal notranslate"><span class="pre">readline()</span></code> can be used to read a single line up to
+a new line character (‘n’). Note that the newline is left at the end
+of the string and the returned string is only empty if the end of the
+file has been reached, e.g.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The final way to read data from a file is to loop in a similar manner
+to looping over a sequence. This is by far the most efficient and has
+the cleanest syntax.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Note that you should always call the <code class="docutils literal notranslate"><span class="pre">close()</span></code> command on the file
+after it has been dealt with to ensure that its resources are freed.</p></li>
+<li><p>In the above examples the lines that have been read from the file
+still contain a newline character as the last character on the line.
+To remove this character use the <code class="docutils literal notranslate"><span class="pre">rstrip()</span></code> function with no
+arguments which strips whitespace characters from the right-hand side
+of the string</p></li>
+</ul>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we will write a file to read in</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;MyFile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;ID WIDTH THICK HEIGHT</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;a  1.0   2.0   3.0 </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;b  2.0   3.6   1.2 </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Now read it in</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;MyFile.txt&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1">#Second try</span>
+
+<span class="c1">#Reading agiain, but with rstrip</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;MyFile.txt&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This should give:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ID WIDTH THICK HEIGHT
+a  1.0   2.0   3.0
+b  2.0   3.6   1.2
+
+ID WIDTH THICK HEIGHT
+a  1.0   2.0   3.0
+b  2.0   3.6   1.2
+</pre></div>
+</div>
+</div>
+<div class="section" id="writing">
+<h2>Writing<a class="headerlink" href="#writing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A string is written to a file using the <code class="docutils literal notranslate"><span class="pre">write()</span></code> command once a
+file has been opened in write mode, ‘w’. Note that the user controls
+the line formatting and using write does not automatically include a
+new line,</p></li>
+</ul>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;NewFile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;1 2 3 4 5 6</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;7 8 9 10 11</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;NewFile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Produces a file with the numbers on 2 separate lines</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> 1 2 3 4 5 6
+ 7 8 9 10 11
+</pre></div>
+</div>
+<p><a class="reference external" href="Category:Tested_Examples">Category:Tested Examples</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Mantid Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../mantid_basic_course/index.html">Mantid Basic Course</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Introduction to Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basic_language_principles.html">Basic Language Principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_conversions.html">Type Conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sequence_data_types.html">Sequence Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control_structures.html">Control Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="looping.html">Looping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_python_exercises_1-2.html">Basic Python Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="more_sequence_types.html">More Sequence Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="error_handling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working_with_functions.html">Working With Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_python_exercises_3-4.html">Basic Python Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working With Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reading">Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing">Writing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="using_modules.html">Using Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pattern_matching_with_regular_expressions.html">Pattern Matching With Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_python_exercises_5.html">Basic Python Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solutions_to_exercises.html">Solutions To Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Introduction to Python</a><ul>
+      <li>Previous: <a href="basic_python_exercises_3-4.html" title="previous chapter">Basic Python Exercises</a></li>
+      <li>Next: <a href="using_modules.html" title="next chapter">Using Modules</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+        &copy; Copyright 2019, Mantid.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

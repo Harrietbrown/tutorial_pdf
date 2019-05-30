@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Interfaces &#8212; Mantid Documentation 4.0.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercises" href="06_exercises_a.html" />
+    <link rel="prev" title="Algorithim Histories" href="04_algorith_histories.html" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59110517-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="interfaces">
+<span id="id1"></span><h1>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="custom-interfaces">
+<h2>Custom Interfaces<a class="headerlink" href="#custom-interfaces" title="Permalink to this headline">¶</a></h2>
+<p>Some analysis workflows are too complex, need more
+user input or need a better way to present the results than a single
+algorithm interface can provide. This is where custom interfaces come
+in. These are pluggable interfaces for Mantidplot that are loaded at run
+time to give a much richer interface to work with for your data
+analysis. Several interfaces have now been developed to handle different
+aspects of the reduction and analysis workflow for data from the various
+scientific techniques.</p>
+</div>
+<div class="section" id="an-example-the-muon-analysis-interface">
+<h2>An Example - The Muon Analysis Interface<a class="headerlink" href="#an-example-the-muon-analysis-interface" title="Permalink to this headline">¶</a></h2>
+<p>The muon analysis interface is an example that uses both algorithmic
+analysis, plotting and curve fitting within one interface to provide a
+single interface that covers a large proportion of the analysis required
+for basic muon spin resonance.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../../_images/MuonAnalysisInterface.png"><img alt="centre" src="../../_images/MuonAnalysisInterface.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="a-simple-walkthrough">
+<h3>A simple walkthrough<a class="headerlink" href="#a-simple-walkthrough" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Start the interface with the Interfaces-&gt;Muon Analysis Menu</p></li>
+<li><p>On the Settings tab set the end value to 10</p></li>
+<li><p>On the Home tab Change the instrument to Emu</p></li>
+<li><p>Enter 20884 in the Load Run box and hit enter</p></li>
+<li><p>You will get a plot of the Asymetry of the data</p></li>
+<li><p>You can change the plot data drop down box to see other plot types</p></li>
+<li><p>With the Asymetry plot visible, go to the Data Analysis Tab</p></li>
+<li><p>Right click the grey Functions bar and “Add Function”</p></li>
+<li><p>Under Muon select ExpDecayOsc and click ok</p></li>
+<li><p>Click Fit under the fit button, the fitted data is displayed on the
+graph</p></li>
+<li><p>On the Results Table tab click the sample_magn_field and sample_temp
+logs and click create table</p></li>
+<li><p>A table with all of the fit parameters and the selected log values is
+created</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Mantid Documentation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Mantid Basic Course</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/getting_started.html">Setting Up and Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Algorithms, Workspaces and Histories</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_algorithms.html">Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_workspaces.html">Workspaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_algorith_histories.html">Algorithim Histories</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_exercises_a.html">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../loading_and_displaying_data/index.html">Loading and Displaying Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connecting_data_to_instruments/index.html">Connecting Data To Instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fitting_data/index.html">Fitting Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using_workbench/index.html">Mantid Workbench</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction_to_python/index.html">Introduction to Python</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Mantid Basic Course</a><ul>
+  <li><a href="index.html">Algorithms, Workspaces and Histories</a><ul>
+      <li>Previous: <a href="04_algorith_histories.html" title="previous chapter">Algorithim Histories</a></li>
+      <li>Next: <a href="06_exercises_a.html" title="next chapter">Exercises</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<footer class="footer">
+  <div class="container">
+      <ul class="nav navbar-nav" style=" float: right;">
+      
+      
+          <li><a href="#">Back to top</a></li>
+       </ul>
+    <p>
+        &copy; Copyright 2019, Mantid.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.0.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
