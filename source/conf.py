@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Mantid Documentation'
+project = 'Mantid Tutorial'
 copyright = '2019, Mantid'
 author = 'Mantid'
 
@@ -31,7 +31,7 @@ release = '4.0.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-'sphinx.ext.doctest'
+    'sphinx.ext.doctest'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -58,6 +58,9 @@ html_static_path = ['_static']
 # -- Options of LaTex output -------------------------------------------------
 
 latex_elements = {
+    # Stop LaTex from putting black pages at the end of chapters with an odd
+    # number of pages
     'extraclassoptions': 'openany',
+    # All figures are positioned in their exact position in the tex.
     'figure_align': 'H'
 }
